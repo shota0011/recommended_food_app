@@ -2,7 +2,7 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.0.0
+  TargetRubyVersion: 2.7.3
   NewCops: enable
 
 StringLiterals:
