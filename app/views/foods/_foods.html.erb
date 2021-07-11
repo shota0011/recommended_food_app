@@ -2,7 +2,7 @@
   <p>【メールアドレス】<%= current_user.email %></p>
   <p>【食品名】<%= @foods.name %></p>
   <p>
-    <%= link_to "詳細", root_path %>
+    <%= link_to "詳細", food_path(:id) %>
     <%= link_to "編集", edit_food_path(:id) %>
     <%= link_to "削除", food_path(:id), method: :delete %>
   </p>
