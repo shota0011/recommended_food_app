@@ -1,2 +1,12 @@
-<h1>Foods#new</h1>
-<p>Find me in app/views/foods/new.html.erb</p>
+<h1>新規投稿</h1>
+<%= form_with model: @post, local: true do |form| %>
+<p>
+  <%= form.label "料理名" %>
+  <%= form.text_field :name, required: true %>
+</p>
+<p>
+  <%= form.label "コメント" %>
+  <%= form.text_area :comment %>
+</p>
+<%= form.submit "送信" %>
+<% end %>
