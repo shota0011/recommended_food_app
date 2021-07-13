@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-   @foods = Food.all
+   @foods = Food.includes(:user).order(:created_at)
   end
 
   def new
@@ -27,6 +27,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:comment)
+    params.require(:food).permit(:name, :comment)
   end
 end
