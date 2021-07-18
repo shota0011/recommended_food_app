@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[edit update destroy]
 
   def index
-   @foods = Food.includes(:user).order(:created_at)
+    @foods = Food.includes(:user).order(:created_at)
   end
 
   def new
@@ -18,14 +18,15 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
+    @food.update!(food_params)
+    redirect_to @food
   end
 
   def destroy
-    @food.destroy!
+    @food.destroy
     redirect_to root_path
   end
 
@@ -39,5 +40,4 @@ class FoodsController < ApplicationController
     @food = current_user.foods.find_by(id: params[:id])
     redirect_to root_path
   end
-
 end
